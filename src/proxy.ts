@@ -1,10 +1,15 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]"]);
+
 /**
  * The API has no login: it is meant to run on localhost for one person.
- * Refuse state-changing requests that come from another site in the same browser (CSRF).
+ * Only answer requests addressed to a local host name (blocks DNS rebinding), and refuse
+ * state-changing requests that come from another site in the same browser (CSRF).
  */
 export function proxy(request: NextRequest) {
+  const host = (request.headers.get("host") ?? "").replace(/:\d+$/, "").toLowerCase();
+  if (!LOCAL_HOSTS.has(host)) return Response.json({ error: "Offer Desk only answers on localhost." }, { status: 403 });
   if (request.method === "GET" || request.method === "HEAD") return NextResponse.next();
   const site = request.headers.get("sec-fetch-site");
   const origin = request.headers.get("origin");

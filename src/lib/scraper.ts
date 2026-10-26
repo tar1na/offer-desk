@@ -1,6 +1,7 @@
 import "server-only";
-import { lookup } from "node:dns/promises";
-import { isIP } from "node:net";
+import dns from "node:dns";
+import { BlockList, isIP } from "node:net";
+import { Agent, fetch as undiciFetch } from "undici";
 import * as cheerio from "cheerio";
 import type { WebsitePage } from "./types";
 
@@ -29,38 +30,65 @@ export function normalizeUrl(input: string): URL {
 const hostKey = (h: string) => h.toLowerCase().replace(/^www\./, "");
 
 const MAX_REDIRECTS = 5;
+const BLOCKED_CODE = "OFFERDESK_PRIVATE_ADDRESS";
+const PRIVATE_MESSAGE = "That address points to a private network and can't be read.";
+
+// Everything that is not the public internet. BlockList also matches IPv4-mapped IPv6 (::ffff:…) against the IPv4 rules.
+const privateRanges = new BlockList();
+for (const [net, prefix] of [
+  ["0.0.0.0", 8], ["10.0.0.0", 8], ["100.64.0.0", 10], ["127.0.0.0", 8], ["169.254.0.0", 16], ["172.16.0.0", 12],
+  ["192.0.0.0", 24], ["192.0.2.0", 24], ["192.168.0.0", 16], ["198.18.0.0", 15], ["198.51.100.0", 24],
+  ["203.0.113.0", 24], ["224.0.0.0", 4], ["240.0.0.0", 4],
+] as const) privateRanges.addSubnet(net, prefix, "ipv4");
+for (const [net, prefix] of [
+  ["::", 128], ["::1", 128], ["::", 96], ["64:ff9b::", 96], ["64:ff9b:1::", 48], ["100::", 64],
+  ["2001::", 32], ["2001:db8::", 32], ["2002::", 16], ["fc00::", 7], ["fe80::", 10], ["fec0::", 10], ["ff00::", 8],
+] as const) privateRanges.addSubnet(net, prefix, "ipv6");
 
 function isPrivateAddress(ip: string): boolean {
-  const v4 = ip.startsWith("::ffff:") ? ip.slice(7) : ip;
-  if (isIP(v4) === 4) {
-    const [a, b] = v4.split(".").map(Number);
-    return (
-      a === 0 || a === 10 || a === 127 || (a === 100 && b >= 64 && b <= 127) || (a === 169 && b === 254) ||
-      (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 198 && (b === 18 || b === 19)) || a >= 224
-    );
-  }
-  const low = ip.toLowerCase();
-  return low === "::" || low === "::1" || low.startsWith("fc") || low.startsWith("fd") || low.startsWith("fe8") || low.startsWith("fe9") || low.startsWith("fea") || low.startsWith("feb");
+  const family = isIP(ip);
+  if (!family) return true;
+  return privateRanges.check(ip, family === 4 ? "ipv4" : "ipv6");
 }
 
-/** Only public web servers may be read: no localhost, private networks, cloud metadata or odd ports. */
-async function assertPublicUrl(url: URL): Promise<void> {
+type LookupCallback = (err: NodeJS.ErrnoException | null, address?: string | dns.LookupAddress[], family?: number) => void;
+
+/** DNS lookup used by the socket itself, so the address that gets checked is the one that gets connected (no rebinding). */
+function checkedLookup(hostname: string, options: dns.LookupOptions, callback: LookupCallback) {
+  dns.lookup(hostname, { all: true, family: options.family }, (err, addresses) => {
+    if (err) return callback(err);
+    if (!addresses.length || addresses.some((a) => isPrivateAddress(a.address))) {
+      return callback(Object.assign(new Error(PRIVATE_MESSAGE), { code: BLOCKED_CODE }));
+    }
+    if (options.all) callback(null, addresses);
+    else callback(null, addresses[0].address, addresses[0].family);
+  });
+}
+
+const agent = new Agent({ connect: { lookup: checkedLookup as never } });
+
+/** Only standard web ports, and IP literals (which skip DNS) must be public too. */
+function assertPublicUrl(url: URL): void {
   if (!/^https?:$/.test(url.protocol)) throw new Error("Only http and https addresses can be read.");
   if (url.port && url.port !== "80" && url.port !== "443") throw new Error("Only standard web ports can be read.");
   const host = url.hostname.replace(/^\[|\]$/g, "");
-  const addresses = isIP(host) ? [{ address: host }] : await lookup(host, { all: true }).catch(() => []);
-  if (!addresses.length) throw new Error("The site could not be reached.");
-  if (addresses.some((a) => isPrivateAddress(a.address))) throw new Error("That address points to a private network and can't be read.");
+  if (isIP(host) && isPrivateAddress(host)) throw new Error(PRIVATE_MESSAGE);
 }
 
-/** fetch that follows redirects by hand so every hop is checked against assertPublicUrl. */
-async function safeFetch(url: URL, init: RequestInit): Promise<Response> {
+/** fetch that follows redirects by hand so every hop is checked, through the address-checking agent. */
+async function safeFetch(url: URL, init: { headers: Record<string, string>; signal?: AbortSignal }): Promise<Response> {
   let current = url;
   for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
-    await assertPublicUrl(current);
-    const res = await fetch(current, { ...init, redirect: "manual" });
+    assertPublicUrl(current);
+    let res: Response;
+    try {
+      res = (await undiciFetch(current, { ...init, redirect: "manual", dispatcher: agent })) as unknown as Response;
+    } catch (e) {
+      if ((e as { cause?: { code?: string } }).cause?.code === BLOCKED_CODE) throw new Error(PRIVATE_MESSAGE);
+      throw e;
+    }
     const location = res.status >= 300 && res.status < 400 ? res.headers.get("location") : null;
-    if (!location) return res;
+    if (!location) return Object.assign(res, { finalUrl: current });
     await res.body?.cancel();
     current = new URL(location, current);
   }
@@ -74,7 +102,6 @@ async function fetchHtml(url: URL): Promise<{ html: string; finalUrl: URL }> {
     const res = await safeFetch(url, {
       headers: { "user-agent": USER_AGENT, accept: "text/html,application/xhtml+xml", "accept-language": "en,*;q=0.5" },
       signal: controller.signal,
-      cache: "no-store",
     });
     if (!res.ok) throw new Error(`The site answered ${res.status}.`);
     const type = res.headers.get("content-type") ?? "";
@@ -94,7 +121,7 @@ async function fetchHtml(url: URL): Promise<{ html: string; finalUrl: URL }> {
       chunks.push(value);
     }
     const html = new TextDecoder("utf-8").decode(Buffer.concat(chunks));
-    return { html, finalUrl: new URL(res.url || url.toString()) };
+    return { html, finalUrl: (res as Response & { finalUrl?: URL }).finalUrl ?? url };
   } catch (e) {
     if (e instanceof Error && e.name === "AbortError") throw new Error("The site took too long to answer.");
     if (e instanceof TypeError) throw new Error("The site could not be reached.");
@@ -110,7 +137,6 @@ async function robotsDisallows(origin: string): Promise<string[]> {
     const res = await safeFetch(new URL("/robots.txt", origin), {
       headers: { "user-agent": USER_AGENT },
       signal: AbortSignal.timeout(5_000),
-      cache: "no-store",
     });
     if (!res.ok) return [];
     const lines = (await res.text()).split(/\r?\n/);
