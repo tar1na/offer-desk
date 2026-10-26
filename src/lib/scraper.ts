@@ -1,4 +1,6 @@
 import "server-only";
+import { lookup } from "node:dns/promises";
+import { isIP } from "node:net";
 import * as cheerio from "cheerio";
 import type { WebsitePage } from "./types";
 
@@ -26,13 +28,51 @@ export function normalizeUrl(input: string): URL {
 
 const hostKey = (h: string) => h.toLowerCase().replace(/^www\./, "");
 
+const MAX_REDIRECTS = 5;
+
+function isPrivateAddress(ip: string): boolean {
+  const v4 = ip.startsWith("::ffff:") ? ip.slice(7) : ip;
+  if (isIP(v4) === 4) {
+    const [a, b] = v4.split(".").map(Number);
+    return (
+      a === 0 || a === 10 || a === 127 || (a === 100 && b >= 64 && b <= 127) || (a === 169 && b === 254) ||
+      (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 198 && (b === 18 || b === 19)) || a >= 224
+    );
+  }
+  const low = ip.toLowerCase();
+  return low === "::" || low === "::1" || low.startsWith("fc") || low.startsWith("fd") || low.startsWith("fe8") || low.startsWith("fe9") || low.startsWith("fea") || low.startsWith("feb");
+}
+
+/** Only public web servers may be read: no localhost, private networks, cloud metadata or odd ports. */
+async function assertPublicUrl(url: URL): Promise<void> {
+  if (!/^https?:$/.test(url.protocol)) throw new Error("Only http and https addresses can be read.");
+  if (url.port && url.port !== "80" && url.port !== "443") throw new Error("Only standard web ports can be read.");
+  const host = url.hostname.replace(/^\[|\]$/g, "");
+  const addresses = isIP(host) ? [{ address: host }] : await lookup(host, { all: true }).catch(() => []);
+  if (!addresses.length) throw new Error("The site could not be reached.");
+  if (addresses.some((a) => isPrivateAddress(a.address))) throw new Error("That address points to a private network and can't be read.");
+}
+
+/** fetch that follows redirects by hand so every hop is checked against assertPublicUrl. */
+async function safeFetch(url: URL, init: RequestInit): Promise<Response> {
+  let current = url;
+  for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
+    await assertPublicUrl(current);
+    const res = await fetch(current, { ...init, redirect: "manual" });
+    const location = res.status >= 300 && res.status < 400 ? res.headers.get("location") : null;
+    if (!location) return res;
+    await res.body?.cancel();
+    current = new URL(location, current);
+  }
+  throw new Error("The site redirected too many times.");
+}
+
 async function fetchHtml(url: URL): Promise<{ html: string; finalUrl: URL }> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   try {
-    const res = await fetch(url, {
+    const res = await safeFetch(url, {
       headers: { "user-agent": USER_AGENT, accept: "text/html,application/xhtml+xml", "accept-language": "en,*;q=0.5" },
-      redirect: "follow",
       signal: controller.signal,
       cache: "no-store",
     });
@@ -67,7 +107,7 @@ async function fetchHtml(url: URL): Promise<{ html: string; finalUrl: URL }> {
 /** Minimal robots.txt check for the "*" group. Unreachable robots.txt means allowed. */
 async function robotsDisallows(origin: string): Promise<string[]> {
   try {
-    const res = await fetch(`${origin}/robots.txt`, {
+    const res = await safeFetch(new URL("/robots.txt", origin), {
       headers: { "user-agent": USER_AGENT },
       signal: AbortSignal.timeout(5_000),
       cache: "no-store",

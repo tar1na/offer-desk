@@ -41,6 +41,10 @@ node --env-file=.env scripts/seed-pipedrive.mjs
 
 Creates five fictional `[Sample]` leads with contacts and meeting notes in your Pipedrive account. It skips leads that already exist. Converting a lead to a deal in the app writes to Pipedrive, so use a sandbox or demo account if you don't want test deals in your real pipeline.
 
+## Security model
+
+Offer Desk has no login: it is a single-user tool meant to run on your own machine. `npm run dev` and `npm start` bind to `127.0.0.1`, cross-site requests to the API are refused, the website reader only fetches public addresses on ports 80/443, and offer HTML sent to Pipedrive is sanitised. Don't expose it on a network without adding authentication.
+
 ## License
 
 [0BSD](LICENSE): use it for anything, no attribution required.

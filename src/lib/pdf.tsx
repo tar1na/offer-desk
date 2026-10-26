@@ -1,7 +1,7 @@
 import "server-only";
 import path from "node:path";
 import { Document, Font, Page, StyleSheet, Text, View, renderToBuffer } from "@react-pdf/renderer";
-import { marked, type Token, type Tokens } from "marked";
+import { Marked, marked, type Token, type Tokens } from "marked";
 import type { ReactNode } from "react";
 
 const fontFile = (name: string) => path.join(process.cwd(), "node_modules/@fontsource/inter/files", `inter-latin-${name}.woff`);
@@ -140,8 +140,27 @@ export async function renderOfferPdf(markdown: string, meta: { title: string; co
   return new Uint8Array(await renderToBuffer(doc));
 }
 
+const escapeHtml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+// The offer text comes from an AI and ends up in Pipedrive's UI: raw HTML is shown as text and only web links survive.
+const safeMarked = new Marked({
+  gfm: true,
+  renderer: {
+    html({ text }) {
+      return escapeHtml(text);
+    },
+    link({ href, tokens }) {
+      const label = this.parser.parseInline(tokens);
+      return /^(https?:|mailto:)/i.test(href) ? `<a href="${escapeHtml(href)}">${label}</a>` : label;
+    },
+    image({ text }) {
+      return escapeHtml(text);
+    },
+  },
+});
+
 export function markdownToHtml(markdown: string): string {
-  return marked.parse(markdown, { async: false, gfm: true }) as string;
+  return safeMarked.parse(markdown, { async: false }) as string;
 }
 
 export function slugify(s: string): string {
