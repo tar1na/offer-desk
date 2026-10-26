@@ -1,0 +1,228 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-centre-rail.html"
+        ],
+        "createdAt": "2026-10-26T00:47:50.060Z",
+        "reason": "agent decided: bone ground #F3EEE3 is the dealt catalog challenger's own palette (rw-centre-rail-reference-setting), shown as an alternate on the decision page"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-10-26T00:47:50.101Z",
+        "reason": "agent decided: canon card deliberately depicts the category-standard SaaS look (Inter) as the standing exit"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-26T01:15:29.365Z",
+        "reason": "agent decided: user picked the category-standard canon card (set in Inter) with Attio, an Inter-based product, as the quality bar"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.432Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.473Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.514Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.555Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/carbon-set.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.595Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/carbon-set.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.635Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/carbon-set.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.677Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/carbon-set.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.718Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-centre-rail.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.758Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-centre-rail.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.799Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-centre-rail.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.841Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-centre-rail.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.883Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-transit.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.925Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-transit.html"
+        ],
+        "createdAt": "2026-10-26T02:15:50.966Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-transit.html"
+        ],
+        "createdAt": "2026-10-26T02:15:51.007Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-transit.html"
+        ],
+        "createdAt": "2026-10-26T02:15:51.048Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/redline.html"
+        ],
+        "createdAt": "2026-10-26T02:15:51.089Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/redline.html"
+        ],
+        "createdAt": "2026-10-26T02:15:51.131Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/redline.html"
+        ],
+        "createdAt": "2026-10-26T02:15:51.173Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/redline.html"
+        ],
+        "createdAt": "2026-10-26T02:15:51.215Z",
+        "reason": "agent decided: unchosen decision-round sketch drawn in another visual world on purpose; DESIGN.md does not govern it"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "courier",
+        "files": [
+          "src/lib/pdf.tsx"
+        ],
+        "createdAt": "2026-10-26T02:15:51.257Z",
+        "reason": "agent decided: the PDF renderer cannot use the system mono stack; built-in Courier is used only for rare code spans in exported PDFs"
+      }
+    ]
+  },
+  "hook": {
+    "enabled": true,
+    "limits": {
+      "maxFindings": 5,
+      "maxChars": 8000
+    }
+  }
+}

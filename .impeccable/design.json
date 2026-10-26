@@ -1,0 +1,579 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-26T00:00:00Z",
+  "title": "Design System: Offer Desk",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "sidebar": {
+        "role": "neutral",
+        "displayName": "Rail Grey",
+        "canonical": "#fafafa",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "subtle": {
+        "role": "neutral",
+        "displayName": "Quiet Fill",
+        "canonical": "#f4f4f5",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252526",
+          "#424243",
+          "#616162",
+          "#828283",
+          "#a5a5a6",
+          "#c9c9ca",
+          "#eeeeef"
+        ]
+      },
+      "hover": {
+        "role": "neutral",
+        "displayName": "Hover Grey",
+        "canonical": "#f4f4f6",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252526",
+          "#424243",
+          "#616163",
+          "#828284",
+          "#a5a5a7",
+          "#c9c9cb",
+          "#eeeef0"
+        ]
+      },
+      "row-hover": {
+        "role": "neutral",
+        "displayName": "Row Whisper",
+        "canonical": "#fafafb",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252526",
+          "#424243",
+          "#616162",
+          "#828283",
+          "#a5a5a6",
+          "#c9c9ca",
+          "#eeeeef"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e7e7ea",
+        "tonalRamp": [
+          "#0b0b0d",
+          "#252527",
+          "#424244",
+          "#616163",
+          "#828285",
+          "#a5a5a7",
+          "#c9c9cc",
+          "#eeeef1"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Firm Hairline",
+        "canonical": "#d4d4d8",
+        "tonalRamp": [
+          "#0b0b0d",
+          "#252528",
+          "#424245",
+          "#616164",
+          "#828285",
+          "#a4a4a8",
+          "#c9c9cd",
+          "#eeeef2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#111827",
+        "tonalRamp": [
+          "#090b10",
+          "#21252e",
+          "#3c424f",
+          "#596172",
+          "#7a8294",
+          "#9ea5b4",
+          "#c3c9d5",
+          "#eaeff7"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink Two",
+        "canonical": "#374151",
+        "tonalRamp": [
+          "#080b10",
+          "#20252e",
+          "#3b424e",
+          "#586271",
+          "#798394",
+          "#9da6b4",
+          "#c3cad5",
+          "#eaeff7"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Slate",
+        "canonical": "#5b6270",
+        "tonalRamp": [
+          "#090b0f",
+          "#22252c",
+          "#3d424c",
+          "#5b616e",
+          "#7c8290",
+          "#9fa5b1",
+          "#c5c9d2",
+          "#ebeef5"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Working Indigo",
+        "canonical": "#4f46e5",
+        "tonalRamp": [
+          "#07012f",
+          "#1b1461",
+          "#322c98",
+          "#4b46d4",
+          "#686cfc",
+          "#8c98ff",
+          "#b4c1ff",
+          "#dfeaff"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Pressed Indigo",
+        "canonical": "#4338ca",
+        "tonalRamp": [
+          "#07022c",
+          "#1b175d",
+          "#322f93",
+          "#4c4acc",
+          "#696ff4",
+          "#8d99ff",
+          "#b5c2ff",
+          "#e0eaff"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Indigo Wash",
+        "canonical": "#eef0fe",
+        "tonalRamp": [
+          "#090a13",
+          "#23242e",
+          "#40414c",
+          "#5f606c",
+          "#80818e",
+          "#a2a4b1",
+          "#c6c8d6",
+          "#ebedfb"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Indigo Ink",
+        "canonical": "#3730a3",
+        "tonalRamp": [
+          "#070527",
+          "#1c1c53",
+          "#343585",
+          "#4e51ba",
+          "#6d74e1",
+          "#919cf6",
+          "#b9c3ff",
+          "#e3ebff"
+        ]
+      },
+      "accent-ring": {
+        "role": "primary",
+        "displayName": "Indigo Halo",
+        "canonical": "#dcdcfb",
+        "tonalRamp": [
+          "#0a0a12",
+          "#242430",
+          "#404052",
+          "#5f5e77",
+          "#807f99",
+          "#a3a3b8",
+          "#c7c7d8",
+          "#ededf9"
+        ]
+      },
+      "amber-soft": {
+        "role": "status",
+        "displayName": "Draft Amber Wash",
+        "canonical": "#fdf3d8",
+        "tonalRamp": [
+          "#0d0b05",
+          "#29251a",
+          "#484232",
+          "#69614c",
+          "#8a826c",
+          "#aba592",
+          "#cec9ba",
+          "#f2eee4"
+        ]
+      },
+      "amber-ink": {
+        "role": "status",
+        "displayName": "Draft Amber Ink",
+        "canonical": "#8a4b08",
+        "tonalRamp": [
+          "#180600",
+          "#3a1c01",
+          "#61360c",
+          "#8b511d",
+          "#af7241",
+          "#cc9972",
+          "#e8c0a2",
+          "#ffe8d3"
+        ]
+      },
+      "green-soft": {
+        "role": "status",
+        "displayName": "Converted Green Wash",
+        "canonical": "#e3f6e9",
+        "tonalRamp": [
+          "#080c09",
+          "#1f2722",
+          "#3a453e",
+          "#57665c",
+          "#77877c",
+          "#9ca9a0",
+          "#c2ccc5",
+          "#e9f1ec"
+        ]
+      },
+      "green-ink": {
+        "role": "status",
+        "displayName": "Converted Green Ink",
+        "canonical": "#17663a",
+        "tonalRamp": [
+          "#001004",
+          "#082d17",
+          "#1b4d2f",
+          "#2f7148",
+          "#529368",
+          "#7fb38f",
+          "#add5b8",
+          "#dbf7e3"
+        ]
+      },
+      "red-soft": {
+        "role": "status",
+        "displayName": "Alert Red Wash",
+        "canonical": "#fdecec",
+        "tonalRamp": [
+          "#120808",
+          "#2e2222",
+          "#4b3e3e",
+          "#6b5d5d",
+          "#8d7e7e",
+          "#b0a1a1",
+          "#d5c5c5",
+          "#fbeaea"
+        ]
+      },
+      "red-ink": {
+        "role": "status",
+        "displayName": "Alert Red Ink",
+        "canonical": "#b42318",
+        "tonalRamp": [
+          "#210000",
+          "#4b0502",
+          "#7a180f",
+          "#ab2c20",
+          "#d35243",
+          "#ed8273",
+          "#ffb0a2",
+          "#ffded4"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Offer and template title in rendered markdown previews (prose h1)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Wizard step titles."
+      },
+      "title-page": {
+        "displayName": "Page Title",
+        "purpose": "Page header title, followed by a muted tabular count."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sheet and empty-state titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default reading size: table cells, nav, inputs, paragraphs."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, field labels, step names, tabs and secondary lines."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Table headers, pills, small buttons, counts, timestamps, hints. The floor; nothing smaller."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Markdown editing textareas only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "control-lift",
+        "value": "0 1px 2px rgba(17,24,39,0.05)",
+        "purpose": "Secondary buttons, empty-state tile, note cards (0.04 inputs, 0.08 active segment, 0.12 primary button)."
+      },
+      {
+        "name": "nav-active",
+        "value": "0 1px 2px rgba(17,24,39,0.06), 0 0 0 1px var(--line)",
+        "purpose": "Active sidebar item lifted off the rail."
+      },
+      {
+        "name": "sheet",
+        "value": "0 12px 40px rgba(17,24,39,0.14)",
+        "purpose": "Side sheet only, over a rgba(17,24,39,0.18) scrim."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 3px rgba(79,70,229,0.15)",
+        "purpose": "Input focus, with indigo border."
+      },
+      {
+        "name": "selected-ring",
+        "value": "0 0 0 1px var(--accent)",
+        "purpose": "Selected radio row, doubling the indigo border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "color-transition",
+        "value": "150ms",
+        "purpose": "Buttons, nav, tabs, steps, inputs."
+      },
+      {
+        "name": "row-hover",
+        "value": "100ms",
+        "purpose": "Table row hover."
+      },
+      {
+        "name": "scrim-fade",
+        "value": "fade-in 160ms ease-out",
+        "purpose": "Sheet scrim."
+      },
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Sheet entrance: 24px slide plus fade over 200ms."
+      },
+      {
+        "name": "progress-fill",
+        "value": "width 500ms ease-out",
+        "purpose": "Determinate generation progress."
+      },
+      {
+        "name": "progress-slide",
+        "value": "1.2s ease-in-out infinite",
+        "purpose": "Indeterminate bar while preparing."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "1ms",
+        "purpose": "All animation and transition durations under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one indigo action per view: Add lead, Generate, Convert to deal.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Convert to deal</button>",
+      "css": ".ds-btn { font-family: var(--font-inter, Inter, ui-sans-serif, system-ui, sans-serif); font-feature-settings: 'cv11','ss01'; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 0 16px; font-size: 15px; font-weight: 500; border-radius: 8px; white-space: nowrap; cursor: pointer; transition: background-color 150ms, border-color 150ms, color 150ms; } .ds-btn:focus-visible { outline: 2px solid var(--accent, #4f46e5); outline-offset: 2px; } .ds-btn:disabled { opacity: .5; pointer-events: none; } .ds-btn-primary { background: var(--accent, #4f46e5); color: #fff; border: 1px solid var(--accent, #4f46e5); box-shadow: 0 1px 2px rgba(17,24,39,0.12); } .ds-btn-primary:hover { background: var(--accent-hover, #4338ca); border-color: var(--accent-hover, #4338ca); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Default button, including the per-row Create offer action.",
+      "html": "<button class=\"ds-btn ds-btn-secondary\">Create offer</button>",
+      "css": ".ds-btn { font-family: var(--font-inter, Inter, ui-sans-serif, system-ui, sans-serif); font-feature-settings: 'cv11','ss01'; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 0 16px; font-size: 15px; font-weight: 500; border-radius: 8px; white-space: nowrap; cursor: pointer; transition: background-color 150ms, border-color 150ms, color 150ms; } .ds-btn:focus-visible { outline: 2px solid var(--accent, #4f46e5); outline-offset: 2px; } .ds-btn:disabled { opacity: .5; pointer-events: none; } .ds-btn-secondary { background: #fff; color: var(--ink, #111827); border: 1px solid var(--line-strong, #d4d4d8); box-shadow: 0 1px 2px rgba(17,24,39,0.05); } .ds-btn-secondary:hover { background: var(--hover, #f4f4f6); }"
+    },
+    {
+      "name": "Ghost Button (small)",
+      "kind": "button",
+      "refersTo": "button-sm",
+      "description": "Ghost variant at the small size; toolbar actions such as Copy, Markdown, PDF.",
+      "html": "<button class=\"ds-btn ds-btn-ghost\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\"/><path d=\"M14 2v4a2 2 0 0 0 2 2h4\"/><path d=\"M10 9H8\"/><path d=\"M16 13H8\"/><path d=\"M16 17H8\"/></svg>Markdown</button>",
+      "css": ".ds-btn { font-family: var(--font-inter, Inter, ui-sans-serif, system-ui, sans-serif); font-feature-settings: 'cv11','ss01'; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 0 16px; font-size: 15px; font-weight: 500; border-radius: 8px; white-space: nowrap; cursor: pointer; transition: background-color 150ms, border-color 150ms, color 150ms; } .ds-btn:focus-visible { outline: 2px solid var(--accent, #4f46e5); outline-offset: 2px; } .ds-btn:disabled { opacity: .5; pointer-events: none; } .ds-btn-ghost { background: transparent; color: var(--ink-2, #374151); border: 1px solid transparent; height: 32px; padding: 0 12px; font-size: 14px; gap: 6px; } .ds-btn-ghost:hover { background: var(--hover, #f4f4f6); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "40px field with label above and hint below; indigo border and halo on focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Company website</span><input class=\"ds-input\" placeholder=\"example.com\"><span class=\"ds-field-hint\">We read the homepage and up to three linked pages.</span></label>",
+      "css": ".ds-field { font-family: var(--font-inter, Inter, ui-sans-serif, system-ui, sans-serif); font-feature-settings: 'cv11','ss01'; display: block; width: 320px; } .ds-field-label { display: block; margin-bottom: 6px; font-size: 15px; font-weight: 500; color: var(--ink-2, #374151); } .ds-field-hint { display: block; margin-top: 6px; font-size: 14px; color: var(--muted, #5b6270); } .ds-input { font: inherit; box-sizing: border-box; height: 40px; width: 100%; border-radius: 8px; border: 1px solid var(--line-strong, #d4d4d8); background: #fff; padding: 0 12px; font-size: 16px; color: var(--ink, #111827); caret-color: var(--accent, #4f46e5); box-shadow: 0 1px 2px rgba(17,24,39,0.04); transition: border-color 150ms, box-shadow 150ms; } .ds-input::placeholder { color: #8a8f99; } .ds-input:focus { outline: none; border-color: var(--accent, #4f46e5); box-shadow: 0 0 0 3px rgba(79,70,229,0.15); }"
+    },
+    {
+      "name": "Status Pills",
+      "kind": "chip",
+      "refersTo": "pill-draft",
+      "description": "Tonal status: amber draft, green converted, neutral.",
+      "html": "<span class=\"ds-pill ds-pill-draft\">Draft</span> <span class=\"ds-pill ds-pill-converted\">Converted</span> <span class=\"ds-pill ds-pill-neutral\">Sample</span>",
+      "css": ".ds-pill { font-family: var(--font-inter, Inter, ui-sans-serif, system-ui, sans-serif); font-feature-settings: 'cv11','ss01'; display: inline-flex; align-items: center; height: 24px; padding: 0 8px; border-radius: 6px; font-size: 14px; font-weight: 500; white-space: nowrap; } .ds-pill-draft { background: var(--amber-soft, #fdf3d8); color: var(--amber-ink, #8a4b08); } .ds-pill-converted { background: var(--green-soft, #e3f6e9); color: var(--green-ink, #17663a); } .ds-pill-neutral { background: var(--subtle, #f4f4f5); color: var(--ink-2, #374151); }"
+    },
+    {
+      "name": "Sidebar Navigation",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Rail-grey sidebar items; the active item is a white lifted chip with an indigo icon.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg><span>Leads</span><span class=\"ds-nav-count\">5</span></a><a class=\"ds-nav-item ds-nav-active\" href=\"#\" aria-current=\"page\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\"/><path d=\"M14 2v4a2 2 0 0 0 2 2h4\"/><path d=\"M10 9H8\"/><path d=\"M16 13H8\"/><path d=\"M16 17H8\"/></svg><span>Offers</span><span class=\"ds-nav-count\">4</span></a></nav>",
+      "css": ".ds-nav { font-family: var(--font-inter, Inter, ui-sans-serif, system-ui, sans-serif); font-feature-settings: 'cv11','ss01'; display: flex; flex-direction: column; gap: 2px; width: 216px; padding: 8px 12px; background: var(--sidebar, #fafafa); } .ds-nav-item { display: flex; align-items: center; gap: 12px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 16px; color: var(--ink-2, #374151); text-decoration: none; transition: background-color 150ms; } .ds-nav-item svg { color: var(--muted, #5b6270); flex-shrink: 0; } .ds-nav-item span:first-of-type { flex: 1; } .ds-nav-item:hover { background: var(--hover, #f4f4f6); } .ds-nav-item:focus-visible { outline: 2px solid var(--accent, #4f46e5); outline-offset: 2px; } .ds-nav-count { font-size: 14px; color: var(--muted, #5b6270); font-variant-numeric: tabular-nums; } .ds-nav-active, .ds-nav-active:hover { background: #fff; color: var(--ink, #111827); font-weight: 500; box-shadow: 0 1px 2px rgba(17,24,39,0.06), 0 0 0 1px var(--line, #e7e7ea); } .ds-nav-active svg { color: var(--accent, #4f46e5); }"
+    },
+    {
+      "name": "Hairline Table",
+      "kind": "card",
+      "refersTo": "table-row",
+      "description": "44px muted header, 52px hairline rows, no zebra, faint row hover.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>Lead</th><th class=\"ds-num\">Value</th><th>Offer</th></tr></thead><tbody><tr><td class=\"ds-strong\">Kestrel Architects</td><td class=\"ds-num\">€18,000</td><td><span class=\"ds-tpill\">Draft</span></td></tr><tr><td class=\"ds-strong\">Harbor Dental Group</td><td class=\"ds-num\">€9,500</td><td><span class=\"ds-tmuted\">—</span></td></tr></tbody></table>",
+      "css": ".ds-table { font-family: var(--font-inter, Inter, ui-sans-serif, system-ui, sans-serif); font-feature-settings: 'cv11','ss01'; width: 560px; border-collapse: collapse; text-align: left; font-size: 16px; color: var(--ink, #111827); } .ds-table th { height: 44px; padding: 0 12px; border-bottom: 1px solid var(--line, #e7e7ea); font-size: 14px; font-weight: 500; color: var(--muted, #5b6270); } .ds-table td { height: 52px; padding: 0 12px; border-bottom: 1px solid var(--line, #e7e7ea); color: var(--ink-2, #374151); } .ds-table th:first-child, .ds-table td:first-child { padding-left: 32px; } .ds-table tbody tr { cursor: pointer; transition: background-color 100ms; } .ds-table tbody tr:hover { background: #fafafb; } .ds-strong { font-weight: 500; color: var(--ink, #111827) !important; } .ds-num { text-align: right; font-variant-numeric: tabular-nums; } .ds-tmuted { color: var(--muted, #5b6270); } .ds-tpill { display: inline-flex; align-items: center; height: 24px; padding: 0 8px; border-radius: 6px; font-size: 14px; font-weight: 500; background: var(--amber-soft, #fdf3d8); color: var(--amber-ink, #8a4b08); }"
+    },
+    {
+      "name": "Wizard Stepper",
+      "kind": "custom",
+      "refersTo": "step-current",
+      "description": "Done, current and future steps with indigo progress and connectors.",
+      "html": "<ol class=\"ds-steps\"><li><button class=\"ds-step ds-step-done\"><span class=\"ds-step-n\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span><span class=\"ds-step-l\">Lead</span><span class=\"ds-step-s\">Kestrel Architects</span></span></button><span class=\"ds-conn ds-conn-on\"></span></li><li><button class=\"ds-step ds-step-current\" aria-current=\"step\"><span class=\"ds-step-n\">2</span><span class=\"ds-step-l\">Template</span></button><span class=\"ds-conn\"></span></li><li><button class=\"ds-step ds-step-todo\" disabled><span class=\"ds-step-n\">3</span><span class=\"ds-step-l\">Meeting notes</span></button></li></ol>",
+      "css": ".ds-steps { font-family: var(--font-inter, Inter, ui-sans-serif, system-ui, sans-serif); font-feature-settings: 'cv11','ss01'; display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; width: 640px; } .ds-steps li { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; } .ds-step { font: inherit; display: flex; align-items: center; gap: 12px; flex: 1; min-height: 56px; padding: 6px 12px; border: 0; border-radius: 8px; background: transparent; text-align: left; cursor: pointer; transition: background-color 150ms; } .ds-step:focus-visible { outline: 2px solid var(--accent, #4f46e5); outline-offset: 2px; } .ds-step-done:hover { background: var(--hover, #f4f4f6); } .ds-step-current { background: var(--accent-soft, #eef0fe); } .ds-step-n { display: grid; place-items: center; width: 28px; height: 28px; flex-shrink: 0; border-radius: 9999px; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; } .ds-step-done .ds-step-n, .ds-step-current .ds-step-n { background: var(--accent, #4f46e5); color: #fff; } .ds-step-current .ds-step-n { box-shadow: 0 0 0 4px #dcdcfb; } .ds-step-todo { cursor: default; } .ds-step-todo .ds-step-n { background: #fff; border: 1px solid var(--line-strong, #d4d4d8); color: var(--muted, #5b6270); } .ds-step-l { display: block; font-size: 15px; font-weight: 500; color: var(--ink, #111827); } .ds-step-todo .ds-step-l { color: var(--muted, #5b6270); } .ds-step-s { display: block; font-size: 14px; color: var(--muted, #5b6270); } .ds-conn { width: 24px; height: 1px; flex-shrink: 0; background: var(--line-strong, #d4d4d8); } .ds-conn-on { background: var(--accent, #4f46e5); }"
+    },
+    {
+      "name": "Generation Readout",
+      "kind": "custom",
+      "description": "Signature: named generation stages over a thin indigo progress bar.",
+      "html": "<div class=\"ds-readout\" aria-live=\"polite\"><div class=\"ds-stages\"><span class=\"ds-stage ds-done\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>Reading 4 pages</span><span class=\"ds-sep\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"/></svg></span><span class=\"ds-stage ds-done\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>Extracting company notes</span><span class=\"ds-sep\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"/></svg></span><span class=\"ds-stage ds-active\"><svg class=\"ds-spin\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 12a9 9 0 1 1-6.219-8.56\"/></svg>Writing section 3 of 5: Scope</span></div><div class=\"ds-track\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\"><div class=\"ds-bar\" style=\"width:60%\"></div></div></div>",
+      "css": ".ds-readout { font-family: var(--font-inter, Inter, ui-sans-serif, system-ui, sans-serif); font-feature-settings: 'cv11','ss01'; width: 640px; padding: 16px 32px; border-bottom: 1px solid var(--line, #e7e7ea); } .ds-stages { display: flex; align-items: center; gap: 8px; font-size: 15px; white-space: nowrap; color: var(--ink-2, #374151); } .ds-stage { display: inline-flex; align-items: center; gap: 8px; } .ds-done svg { color: var(--green-ink, #17663a); } .ds-active { font-weight: 500; color: var(--ink, #111827); } .ds-active svg { color: var(--accent, #4f46e5); } .ds-sep { display: inline-flex; color: var(--line-strong, #d4d4d8); } .ds-spin { animation: ds-rot 1s linear infinite; } @keyframes ds-rot { to { transform: rotate(360deg); } } .ds-track { margin-top: 12px; height: 4px; overflow: hidden; border-radius: 9999px; background: var(--subtle, #f4f4f5); } .ds-bar { height: 100%; border-radius: 9999px; background: var(--accent, #4f46e5); transition: width 500ms ease-out; } @media (prefers-reduced-motion: reduce) { .ds-spin { animation-duration: 1ms; } }"
+    },
+    {
+      "name": "To-Confirm Mark",
+      "kind": "custom",
+      "refersTo": "to-confirm-mark",
+      "description": "Amber highlight for details the AI could not ground in notes or website.",
+      "html": "<p class=\"ds-prose\">Kick-off in <mark class=\"ds-confirm\">[to confirm: start date]</mark>, with training for 5 admins.</p>",
+      "css": ".ds-prose { font-family: var(--font-inter, Inter, ui-sans-serif, system-ui, sans-serif); font-feature-settings: 'cv11','ss01'; max-width: 72ch; font-size: 16px; line-height: 1.65; color: var(--ink, #111827); } .ds-confirm { background: var(--amber-soft, #fdf3d8); color: var(--amber-ink, #8a4b08); border-radius: 4px; padding: 1px 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Straight-Played CRM Workspace",
+    "overview": "Offer Desk is the category-standard SaaS CRM workspace, done straight at Attio's level of craft. A white work surface sits beside a barely-grey sidebar; hairline rules, not boxes, organise the page; one indigo accent marks the thing to press, the thing chosen, and the thing in progress. Everything else is ink on white. It is read on a projector or screen share during a client demo, so text never drops below 14px and the theme is light only.\n\nDensity is that of a working tool: 52px table rows, 40px controls, a 32px page gutter. The system's one signature is the staged generation readout (a named-stage trail with a thin accent progress bar) that streams the offer into the editor, beside a sources panel that shows what the offer was built from. It rejects the two category traps named in the direction: a Pipedrive look-alike built on pipeline boards and Pipedrive green, and an AI chat box with a prompt field.",
+    "keyCharacteristics": [
+      "White surface, #fafafa sidebar and sources panel, hairline #e7e7ea rules.",
+      "One indigo accent, rationed to primary actions, selection, focus and progress.",
+      "Inter throughout with cv11/ss01, tabular numerals in tables and counts.",
+      "Gentle 8px corners on controls and cards, 6px on pills and segments.",
+      "Flat surfaces with hairline 1px lifts; only the side sheet floats.",
+      "Quiet tonal status pills: amber draft, green converted.",
+      "Lucide line icons at 1.75 stroke."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Indigo appears only on a primary action, a current selection, keyboard focus or generation progress. Never on decoration, headings, links in chrome, or more than one primary button per view.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tonal Status Rule",
+        "body": "Status is a soft tinted fill with a dark same-hue ink (24px pill, 6px corners). No saturated status fills, no outlined status badges.",
+        "section": "colors"
+      },
+      {
+        "name": "The Projector Floor Rule",
+        "body": "No text below 14px anywhere in the app. 14px is reserved for headers, pills and meta; reading text is 16px.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Count Rule",
+        "body": "Every count, money value and date in a table or list uses tabular numerals.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Float Rule",
+        "body": "Only the side sheet floats. Everything else is flat or carries the 1px control lift; no cards with large soft shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep indigo (#4f46e5) to one primary action per view plus selection, focus and progress states.",
+      "**Do** separate content with 1px #e7e7ea hairlines and tonal columns (#ffffff work surface, #fafafa supporting rails).",
+      "**Do** set reading text at 16px, controls and secondary lines at 15px, and only headers, pills and meta at 14px.",
+      "**Do** use tabular numerals for every count, value and date.",
+      "**Do** use lucide line icons at 1.75 stroke (2 to 2.5 only for small checks, arrows and spinners).",
+      "**Do** name what the AI is doing in stages with a determinate progress bar; show sources beside every generated offer.",
+      "**Do** honour reduced motion: all animation and transition durations clamp to 1ms."
+    ],
+    "donts": [
+      "**Don't** add a dark theme; the product is light only (`color-scheme: light`) for projector use.",
+      "**Don't** use zebra striping or vertical rules in tables.",
+      "**Don't** set any text below 14px.",
+      "**Don't** use Pipedrive green as a brand colour or build pipeline boards; green is a status tint only.",
+      "**Don't** show a silent spinner for AI work or present generation as a chat box with a prompt field.",
+      "**Don't** float anything except the side sheet; no large soft card shadows.",
+      "**Don't** use saturated fills for status; status is always soft tint plus dark ink."
+    ]
+  }
+}
