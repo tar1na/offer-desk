@@ -36,10 +36,18 @@ type GenEvent =
   | { type: "error"; message: string };
 
 export function Wizard() {
+  // Next keeps this page alive (hidden) across navigations, so a finished wizard would
+  // reopen at its old lead and step, and its draft step would generate again. Start a
+  // fresh wizard for every new visit or lead; back/forward still restores the old one.
+  const { bfcacheId } = useRouter();
+  const lead = useSearchParams().get("lead");
+  return <WizardFlow key={`${bfcacheId}:${lead ?? ""}`} initialLeadId={lead} />;
+}
+
+function WizardFlow({ initialLeadId }: { initialLeadId: string | null }) {
   const router = useRouter();
-  const params = useSearchParams();
   const [step, setStep] = useState(0);
-  const [leadId, setLeadId] = useState<string | null>(params.get("lead"));
+  const [leadId, setLeadId] = useState<string | null>(initialLeadId);
   const [leads, setLeads] = useState<LeadRow[] | null>(null);
   const [lead, setLead] = useState<Lead | null>(null);
   const [templates, setTemplates] = useState<Template[] | null>(null);
@@ -666,8 +674,11 @@ function DraftStep({
   const [fallback, setFallback] = useState<string | null>(null);
   const abort = useRef<AbortController | null>(null);
   const scroller = useRef<HTMLDivElement | null>(null);
+  const savedId = useRef<number | null>(null);
 
   useEffect(() => {
+    // Next re-runs this effect when a hidden page is shown again; never write a second draft.
+    if (savedId.current !== null) return onSaved(savedId.current);
     const controller = new AbortController();
     abort.current = controller;
     let acc = "";
@@ -686,6 +697,7 @@ function DraftStep({
           setText(acc);
         } else if (e.type === "saved") {
           setStage("saving");
+          savedId.current = e.id;
           onSaved(e.id);
         } else if (e.type === "error") {
           setError(e.message);
